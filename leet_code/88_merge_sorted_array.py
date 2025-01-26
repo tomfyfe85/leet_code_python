@@ -17,15 +17,44 @@ Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
 The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
 
 """
+from typing import List
 
 
 class Solution:
 	def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
 		"""
 		Do not return anything, modify nums1 in-place instead.
+		start at the back of each list
+
+		use 3 pointers
+		p1 = m -1
+		p2 = n -1
+		p3 = (m+n) IE the length of nums1
+
+
+		start the back of each array
+		check if nums1[p1] < nums2[p2]  if so add nums2[p2] to back of nums1 IE nums1[p3]
+		decrease p2 by one to check the next element in nums2 against nums1[p1]
+		and vise versa
+		decrease p3 by one each time
+		keep going till p3 = 0
+		if
+
 		"""
+		p1, p2, p3  = m-1, n-1, (m + n) - 1
 
+		while p2>= 0:
+			if p1 >= 0 and nums1[p1] < nums2[p2]:
+				nums1[p3] = nums2[p2]
+				p2 -= 1
+				print(nums1)
+			else:
+				nums1[p3] = nums1[p1]
+				p1 -=1
+			p3 -= 1
+		print(p3)
 
+		print(nums1)
 
 solution = Solution()
 
