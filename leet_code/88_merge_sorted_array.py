@@ -41,20 +41,21 @@ class Solution:
 		if
 
 		"""
-		p1, p2, p3  = m-1, n-1, (m + n) - 1
+		if n == 0:
+			return
+		if m == 0:
+			p1, p2, p3 = m, n - 1, (n + m) - 1
+		if m > 0:
+			p1, p2, p3 = m - 1, n - 1, (n + m) - 1
 
-		while p2>= 0:
+		while p2 >= 0 and p1 >= 0 and p3 >= 0:
 			if p1 >= 0 and nums1[p1] < nums2[p2]:
 				nums1[p3] = nums2[p2]
 				p2 -= 1
-				print(nums1)
 			else:
 				nums1[p3] = nums1[p1]
-				p1 -=1
+				p1 -= 1
 			p3 -= 1
-		print(p3)
-
-		print(nums1)
 
 solution = Solution()
 
